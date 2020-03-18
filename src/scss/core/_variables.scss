@@ -1,0 +1,45 @@
+// Fonts
+$mainFont: "Roboto", sans-serif;
+$secondaryFont: "Montserrat", sans-serif;
+
+// Size
+$containerWidth: 100%;
+$mainFontWeight: 400;
+
+// Main text color
+$c-white: #fff;
+$c-black: #0e1a35;
+$c-default: #8492af;
+$c-danger: #f83c7b;
+$c-primary: #00bf1b;
+$c-warning: #aa5fb9; // for 'Statistic'
+
+// Main background color
+$bg-c-white: #fff;
+$bg-c-black: #000;
+$bg-c-default: #f6f7fa; // основной фон
+$bg-c-primary: #0e1a35; // темно синий
+$bg-c-success: #5584ff; // голубой
+$bg-c-danger: #f83c7b; // дополнительный
+$bg-c-warning: #aa5fb9; // for 'Statistic'
+
+$z-indexs: (
+  underlay: -1,
+  relative: 1,
+  menu: 5,
+  overlay: 10,
+  popup: 15
+);
+
+$breakpoints: (
+  xs: 460px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+$align-items: (center, flex-end, flex-start);
+$justify-content: (center, flex-end, flex-start, space-between, space-around);
+$displays: (block, flex, table, none);
+$positions: (relative, absolute, fixed, sticky);

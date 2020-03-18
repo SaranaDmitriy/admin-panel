@@ -1,0 +1,52 @@
+@import "./variables";
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.4rem;
+  font-family: $mainFont;
+  color: $c-default;
+}
+
+*,
+:before,
+:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+// FORM
+input,
+button,
+textarea {
+  font-family: inherit;
+  line-height: normal;
+  font-size: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+// LIST
+li {
+  list-style: none;
+}
+
+// LINKS
+a {
+  text-decoration: none;
+}
