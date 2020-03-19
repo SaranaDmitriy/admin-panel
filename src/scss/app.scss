@@ -39,3 +39,84 @@
     position: $position;
   }
 }
+
+// MENU
+.admin-panel {
+  @include flex-row();
+  height: 100vh;
+  background-color: $bg-c-default;
+
+  .col-2 {
+    @include flex-column(flex-start);
+    height: 100%;
+    background-color: $bg-c-primary;
+    color: $c-white;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 48px;
+
+    .menu-logo {
+      @include flex-row();
+      font-size: 30px;
+      img {
+        max-width: 55px;
+      }
+      span {
+        padding-left: 15px;
+      }
+    }
+
+    nav {
+      width: 100%;
+    }
+
+    .main-menu {
+      a {
+        color: $c-white;
+        width: 100%;
+        display: inline-block;
+        padding: 15px 0 15px 10%;
+        img {
+          padding-right: 15px;
+        }
+        &:hover {
+          border-left: 10px solid $bg-c-success;
+          background-color: #122143;
+          transition-duration: 0.5s;
+        }
+      }
+    }
+  }
+
+  .col-10 {
+    @include flex-column();
+    height: 100%;
+
+    .row-1 {
+      @include flex-row(space-between);
+      width: 100%;
+      background-color: $bg-c-white;
+      .header-left {
+        padding-left: 3%;
+        :last-child {
+          padding-left: 3%;
+        }
+      }
+      .header-right {
+      }
+    }
+
+    .row-11 {
+      width: 100%;
+    }
+  }
+}
+
+// HOME PAGE
+.home-main {
+  div {
+    height: 100%;
+    font-weight: bold;
+    font-size: 30px;
+  }
+}
