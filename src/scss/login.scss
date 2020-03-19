@@ -2,3 +2,195 @@
 @import "core/variables";
 @import "core/mixin";
 @import "core/reset";
+
+.container {
+    max-width: $containerWidth;
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+.absolute-center {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        width: 100% / 12 * $i;
+    }
+}
+
+@for $i from 1 through 12 {
+    .row-#{$i} {
+        height: 100% / 12 * $i;
+    }
+}
+
+@each $display in $displays {
+.d-#{$display} {
+    display: $display;
+}
+}
+
+@each $position in $positions {
+    .p-#{$position} {
+        position: $position;
+    }
+}
+
+.login {
+    background: url(../static/img/bg.png) no-repeat center/cover;
+    height: 100vh;
+    @include flex-row();
+    .main_window {
+        width: 63.5%;
+        background-color: $bg-c-white;
+        @include respond-to(lg) {
+            width: 80%;
+        }
+        .login_main > p:first-of-type {
+            margin-top: 4.5%;
+            margin-bottom: 10.3%;
+        }
+    }
+}
+
+.login_header {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    background-color: $bg-c-primary;
+    display: flex;
+    justify-content: space-between;
+    .logo_name {
+        font-size: 4rem;
+        color: $c-white;
+        padding-left: 45px;
+        @include flex-row();
+        @include respond-to(lg) {
+            padding-left: 20px;
+            font-size: 3.5rem;
+        }
+        .logo_img {
+            margin-right: 20px;
+        }
+
+        .logo_img:hover {
+            transform: rotate(180deg);
+        }
+    }
+    .reg_logo {
+        color: $c-white;
+        font-size: 2.4rem;
+        display: flex;
+        align-items: center;
+        position: relative;
+        @include respond-to(md) {
+            justify-content: space-around;
+            flex-direction: column;
+        }
+        .register_btn {
+            padding-left: 25px;
+            padding-right: 25px;
+            display: block;
+            @include respond-to(md) {
+            &:hover {
+                color: gray;
+                cursor: pointer;
+            }
+            }
+        }
+        .register_btn:hover:before {
+            position: absolute;
+            top: calc(100% + 7px);
+            left: 0;
+            content: "";
+            width: 55%;
+            height: 8px;
+            background-color: $bg-c-success;
+            @include respond-to(md) {
+            position: relative;
+            }
+        }
+        .login_btn {
+            padding-left: 25px;
+            padding-right: 25px;
+            @include respond-to(md) {
+            &:hover {
+                color: gray;
+                cursor: pointer;
+            }
+            }
+        }
+        .login_btn:hover:before {
+            position: absolute;
+            top: calc(100% + 7px);
+            right: 0;
+            content: "";
+            width: 45%;
+            height: 8px;
+            background-color: $bg-c-success;
+            @include respond-to(md) {
+                position: relative;
+            }
+        }
+    }
+}
+
+.login_main {
+    @include flex-column();
+    padding-bottom: 8.5%;
+    .welcome {
+    color: $c-default;
+    font-size: 4.8rem;
+    padding-top: 7.8%;
+    padding-bottom: 10.5%;
+    }
+    .welcome > span {
+        color: #5384ff;
+    }
+    .input_login {
+        width: 50%;
+        border-bottom: solid 1px $c-default;
+        padding-bottom: 1.5%;
+        .input_login > img {
+            width: 24px;
+            height: 24px;
+        }
+        .temp_login {
+            font-size: 2.4rem;
+            padding-left: 35px;
+            outline: none;
+            border: none;
+            @include respond-to(xl) {
+            width: 70%;
+            padding-left: 10px;
+            }
+        }
+    }
+    .enter_btn {
+        position: relative;
+        width: 35%;
+        max-height: 71px;
+        .login_button {
+            padding: 8px;
+            border-radius: 36px;
+            background-color: $bg-c-success;
+            @include flex-row();
+            color: $c-white;
+            font-size: 2.4rem;
+        }
+        .arrow {
+            height: 11px;
+            width: 11px;
+            border-bottom: solid white;
+            border-right: solid white;
+            position: absolute;
+            top: 16px;
+            right: 17px;
+            transform: rotate(-45deg);
+        }
+    }
+}
