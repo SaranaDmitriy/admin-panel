@@ -1,0 +1,268 @@
+@import "core/reset";
+@import "core/variables";
+@import "core/fonts";
+@import "core/mixin";
+
+.container {
+  max-width: $containerWidth;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    width: 100% / 12 * $i;
+  }
+}
+
+@for $i from 1 through 12 {
+  .row-#{$i} {
+    height: 100% / 12 * $i;
+  }
+}
+
+@each $display in $displays {
+  .d-#{$display} {
+    display: $display;
+  }
+}
+
+@each $position in $positions {
+  .p-#{$position} {
+    position: $position;
+  }
+}
+
+.admin-panel {
+  @include flex-row();
+  height: 100vh;
+  background-color: $bg-c-default;
+  .menu-block {
+    @include flex-column(flex-start);
+    height: 100%;
+    background-color: $bg-c-primary;
+    color: $c-white;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 48px;
+    nav {
+      width: 100%;
+    }
+    @include respond-to(xl) {
+      width: 60px;
+      padding: 0;
+      a {
+        @include flex-column();
+      }
+      .menu-title-item {
+        font-size: 1rem;
+      }
+    }
+    @include respond-to(lg) {
+      display: none;
+    }
+  }
+  .user-window {
+    @include flex-column();
+    height: 100%;
+    .user-window-header {
+      @include flex-row(space-between);
+      width: 100%;
+      background-color: $bg-c-white;
+    }
+    .user-window-info {
+      width: 100%;
+    }
+    @include respond-to(xl) {
+      width: 100%;
+    }
+    @include respond-to(sm) {
+      .user-window-header {
+        height: 10%;
+      }
+      .user-window-info {
+        height: 90%;
+      }
+    }
+  }
+}
+
+.menu-logo {
+  @include flex-row();
+  font-size: 30px;
+  .menu-logo-img {
+    max-width: 55px;
+  }
+  .menu-title {
+    padding-left: 15px;
+  }
+  @include respond-to(xl) {
+    .menu-title {
+      display: none;
+    }
+    .menu-logo-img {
+      max-width: 45px;
+    }
+  }
+}
+
+.menu-main {
+  a {
+    color: $c-white;
+    width: 100%;
+    display: inline-block;
+    padding: 15px 0 15px 10%;
+    img {
+      padding-right: 15px;
+    }
+    &:hover {
+      border-left: 10px solid $bg-c-success;
+      background-color: #122143;
+      transition-duration: 0.5s;
+    }
+    @include respond-to(xl) {
+      @include flex-row();
+      padding: 14px 0;
+      img {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.header-left {
+  @include flex-row(space-between);
+  max-width: 100px;
+  width: 100%;
+  margin-left: 3%;
+  .menu-control {
+    @include flex-row(space-between);
+    max-width: 37px;
+    width: 100%;
+    cursor: pointer;
+    :last-child {
+      display: none;
+    }
+  }
+  @include respond-to(xl) {
+    max-width: 80px;
+    .menu-control {
+      :last-child,
+      :first-child {
+        display: none !important;
+      }
+    }
+  }
+}
+
+.header-right {
+  @include flex-row(space-between);
+  max-width: 440px;
+  width: 100%;
+  margin-right: 3%;
+  .add-project {
+    max-width: 145px;
+    width: 100%;
+    .btn-small {
+      @include flex-row(space-between);
+      width: 100%;
+      background-color: $bg-c-success;
+      padding: 15px;
+      border-radius: 24px;
+
+      color: $c-white;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.24px;
+    }
+  }
+  .user-profile {
+    max-width: 70px;
+    width: 100%;
+    .user-profile-item {
+      @include flex-row(space-between);
+    }
+  }
+  @include respond-to(xl) {
+    max-width: 340px;
+  }
+  @include respond-to(sm) {
+    max-width: 180px;
+    .add-project {
+      display: none;
+    }
+  }
+  @media screen and (orientation: landscape) and (max-width: 823px) {
+    .user-profile-item img:first-of-type {
+      height: 30px;
+    }
+    .add-project .btn-small {
+      padding: 5px 10px;
+      font-size: 1.4rem;
+    }
+    .user-profile {
+      max-width: 50px;
+    }
+    .add-project {
+      max-width: 125px;
+    }
+  }
+}
+
+// Class JavaScript
+.menuBlockActive {
+  width: 60px;
+  padding: 0;
+
+  .menu-logo {
+    .menu-title {
+      display: none;
+    }
+    .menu-logo-img {
+      max-width: 45px;
+    }
+  }
+
+  .menu-main {
+    a {
+      @include flex-column();
+      padding: 14px 0;
+      span {
+        font-size: 1rem;
+      }
+      img {
+        padding: 0;
+      }
+    }
+  }
+
+  @include respond-to(xl) {
+    display: block !important;
+  }
+}
+
+.userWindowActive {
+  width: 100%;
+}
+
+.menuControlActive {
+  :last-child {
+    display: block !important;
+  }
+  :first-child {
+    display: none;
+  }
+}
+
+.currentLink {
+  border-left: 10px solid $bg-c-success;
+  background-color: #122143;
+  transition-duration: 0.5s;
+}
