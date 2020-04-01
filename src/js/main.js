@@ -14,8 +14,6 @@
   const curUrl = `/${loc.split('/').pop()}`;
   const menuItem = document.querySelectorAll('.menu-main>li>a');
 
-  console.log(curUrl)
-  console.log(menuItem)
   menuItem.forEach((el) => {
     const link = el.getAttribute('href');
 
