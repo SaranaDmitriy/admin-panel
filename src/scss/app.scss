@@ -46,8 +46,87 @@
   div {
     height: 100%;
     font-weight: bold;
-    font-size: 30px;
+    // font-size: 30px;
   }
 }
 //Временное//
 // END PAGE //
+.main {
+  display: flex;
+  font-size: 1.8rem;
+  color: $c-black;
+  @include respond-to(md) {
+    flex-wrap: wrap;
+  }
+
+  .mainList {
+    width: calc(100% / 3);
+    margin: 0 20px;
+    @include respond-to(md) {
+      width: 100%;
+    }
+  }
+  .titleText {
+    margin-top: 20px;
+    font-size: 3rem;
+    @include flex-row(space-between);
+    display: flex;
+    align-items: center;
+    img {
+      width: 17px;
+      height: 27px;
+    }
+  }
+}
+
+.elem {
+  display: flex;
+  padding: 15px;
+  background-color: $bg-c-white;
+  margin: 10px 0;
+  @include flex-row(space-between);
+  & > img {
+    margin-left: 5px;
+  }
+  .mainblock {
+    display: flex;
+    .rincle {
+      position: relative;
+      min-width: 45px;
+      min-height: 45px;
+      max-width: 45px;
+      max-height: 45px;
+      background-color: #5584ff;
+      border-radius: 100%;
+      margin-right: 15px;
+      .letter {
+        width: 22px;
+        text-align: center;
+        position: absolute;
+        top: 11%;
+        left: 26%;
+        font-size: 3rem;
+        color: $c-white;
+      }
+    }
+    .onlyText {
+      flex-direction: row;
+      .inProgres {
+        color: $c-default;
+      }
+      .completed {
+        display: flex;
+        flex-direction: row-reverse;
+        @include flex-row(flex-end);
+        margin-top: 5px;
+        font-size: 1.4rem;
+        color: $c-default;
+        img {
+          margin-right: 5px;
+          height: 17px;
+          width: 17px;
+        }
+      }
+    }
+  }
+}

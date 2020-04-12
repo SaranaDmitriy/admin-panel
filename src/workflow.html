@@ -86,15 +86,100 @@
       </div>
 
       <div class="user-window-info home-main row-11">
-        <!-- Временное -->
-        <div class="p-relative">
-          <p class="absolute-center">Page in development</p>
-        </div>
-        <!-- Временное -->
+        <main class="main">
+          <div class="mainList list1">
+            <div class="titleText titleDo">To Do<img src="static/img/icons/big_arrow.png"></div>
+          </div>
+          <div class="mainList list2">
+            <div class="titleText titlePro">In Progress<img src="static/img/icons/big_arrow.png"></div>
+          </div>
+          <div class="mainList list3">
+            <div class="titleText titleComp">Completed<img src="static/img/icons/big_arrow.png"></div>
+          </div>
+        </main>
       </div>
     </div>
   </article>
+  <script>
+    (() => {
+      let toDo = [{ name: 'New website for JCD.PL', status: '5 days left', watch: 'gray' }, { name: 'Free PSD Template vol.3', status: '5 days left', watch: 'gray' }, { name: 'New logo for Google', status: '5 days left', watch: 'gray' }, { name: 'New website for Windu.org', status: '5 days left', watch: 'gray' }, { name: 'Free PSD Template vol.2', status: '5 days left', watch: 'gray' }, { name: 'Iconset Vol.3', status: '5 days left', watch: 'gray' }];
+      let inProgres = [{ name: 'New logo for Apple', status: '1 days left', watch: 'gray' }, { name: 'Daily Ul Kit', status: '5 days left', watch: 'gray' }, { name: 'Business Cards', status: '5 days left', watch: 'red' }];
+      let complete = [{ name: 'Free PSD Template vol.3', status: 'Completed!', watch: 'green' }, { name: 'Iconset Vol.1', status: 'Completed!', watch: 'green' }, { name: 'New website for Symu.co', status: 'Completed!', watch: 'green' }, { name: 'Iconset Vol.2', status: 'Completed!', watch: 'green' }];
 
+      function letFor(name, inputName, inputStatus, watch) {
+        let bigBlock = document.querySelector(`${name}`);
+        let block = document.createElement('div');
+        let elem = document.createElement('div');
+        let mainblock = document.createElement('div');
+        let elemImg = document.createElement('img');
+        let rincle = document.createElement('div');
+        let letter = document.createElement('div'); 
+        let onlyText = document.createElement('div');
+        let nameText = document.createElement('div');
+        let completed = document.createElement('div');
+        let imgInComp = document.createElement('img');
+
+        block.setAttribute('class', 'block');
+        elem.setAttribute('class', 'elem');
+        mainblock.setAttribute('class', 'mainblock');
+        rincle.setAttribute('class', 'rincle');
+        letter.setAttribute('class', 'letter');
+        onlyText.setAttribute('class', 'onlyText');
+        nameText.setAttribute('class', 'nameText');
+        completed.setAttribute('class', 'completed');
+
+        imgInComp.src = 'static/img/icons/watch_gray.png';
+        letter.innerText = inputName[0];
+        elemImg.src = 'static/img/icons/options.png';
+        nameText.innerText = inputName;
+        completed.innerText = inputStatus;
+
+        if (watch == 'green') {
+          imgInComp.src = 'static/img/icons/watch_green.png';
+          completed.style.color = '#00bf1b';
+        }
+        if (watch == 'red') {
+          imgInComp.src = 'static/img/icons/watch_red.png';
+          completed.style.color = '#f83c7b';
+        }
+
+        bigBlock.append(block);
+        block.append(elem);
+        elem.append(mainblock);
+        elem.append(elemImg);
+        mainblock.append(rincle);
+        rincle.append(letter);
+        mainblock.append(onlyText);
+        onlyText.append(nameText);
+        onlyText.append(completed);
+        completed.append(imgInComp);
+      }
+
+      for (let i = 0; i < toDo.length; i++) {
+        let name = '.list1';
+        let inputName = toDo[i].name;
+        let inputStatus = toDo[i].status;
+        let watch = toDo[i].watch;
+        letFor(name, inputName, inputStatus, watch);
+      }
+
+      for (let i = 0; i < inProgres.length; i++) {
+        let name = '.list2';
+        let inputName = inProgres[i].name;
+        let inputStatus = inProgres[i].status;
+        let watch = inProgres[i].watch;
+        letFor(name, inputName, inputStatus, watch);
+      }
+
+      for (let i = 0; i < complete.length; i++) {
+        let name = '.list3';
+        let inputName = complete[i].name;
+        let inputStatus = complete[i].status;
+        let watch = complete[i].watch;
+        letFor(name, inputName, inputStatus, watch);
+      }
+    })();
+  </script>
 </body>
 
 </html>
