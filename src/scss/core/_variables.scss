@@ -28,7 +28,7 @@ $z-indexs: (
   relative: 1,
   menu: 5,
   overlay: 10,
-  popup: 15
+  popup: 15,
 );
 
 $breakpoints: (
@@ -36,7 +36,7 @@ $breakpoints: (
   sm: 576px,
   md: 768px,
   lg: 992px,
-  xl: 1200px
+  xl: 1200px,
 );
 
 $align-items: (center, flex-end, flex-start);
