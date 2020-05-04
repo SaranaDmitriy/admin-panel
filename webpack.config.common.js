@@ -15,7 +15,7 @@ module.exports = {
   node: {
     fs: 'empty',
   },
-  entry: ['./src/js/main.js', './src/scss/app.scss', './src/scss/login.scss'],
+  entry: ['./src/js/main.js', './src/scss/app.scss', './src/scss/login.scss', './src/scss/menu.scss'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'app.bundle.js',

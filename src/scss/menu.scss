@@ -1,0 +1,527 @@
+@import "core/reset";
+@import "core/variables";
+@import "core/fonts";
+@import "core/mixin";
+
+.container {
+  max-width: $containerWidth;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    width: 100% / 12 * $i;
+  }
+}
+
+@for $i from 1 through 12 {
+  .row-#{$i} {
+    height: 100% / 12 * $i;
+  }
+}
+
+@each $display in $displays {
+  .d-#{$display} {
+    display: $display;
+  }
+}
+
+@each $position in $positions {
+  .p-#{$position} {
+    position: $position;
+  }
+}
+
+.admin-panel {
+  @include flex-row(center, flex-start);
+  min-height: 100vh;
+  background-color: $bg-c-default;
+  .menu-block {
+    @include flex-column(flex-start);
+    overflow: auto;
+    position: sticky;
+    top: 0;
+    min-height: 100vh;
+    background-color: $bg-c-primary;
+    color: $c-white;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 48px;
+    nav {
+      width: 100%;
+    }
+    @include respond-to(xl) {
+      width: 60px;
+      padding: 0;
+      a {
+        @include flex-column();
+      }
+      .menu-title-item {
+        font-size: 1rem;
+      }
+    }
+    @include respond-to(lg) {
+      display: none;
+    }
+  }
+  .user-window {
+    @include flex-column(flex-start, flex-start);
+    height: 100%;
+    .user-window-header {
+      @include flex-row(space-between);
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background-color: $bg-c-white;
+      padding: 15px 0;
+    }
+    .user-window-info {
+      width: 100%;
+      // временное
+      .test-title {
+        text-align: center;
+        padding: 25px;
+      }
+      .test {
+        @include flex-row(center, flex-start);
+        flex-wrap: wrap;
+        .menu {
+          min-width: 250px;
+          height: 500px;
+          background-color: #5584ff;
+          margin: 15px;
+        }
+      }
+      // временное
+    }
+    @include respond-to(xl) {
+      width: 100%;
+    }
+    @include respond-to(sm) {
+      .user-window-header {
+        height: 10%;
+      }
+      .user-window-info {
+        height: 90%;
+      }
+    }
+  }
+}
+
+.menu-logo {
+  @include flex-row();
+  font-size: 30px;
+  padding: 15px 0;
+  .menu-logo-img {
+    max-width: 55px;
+  }
+  .menu-title {
+    padding-left: 15px;
+  }
+  @include respond-to(xl) {
+    .menu-title {
+      display: none;
+    }
+    .menu-logo-img {
+      max-width: 45px;
+    }
+  }
+}
+
+.menu-main {
+  a {
+    color: $c-white;
+    width: 100%;
+    display: inline-block;
+    padding: 15px 0 15px 10%;
+    img {
+      padding-right: 15px;
+    }
+    &:hover {
+      border-left: 10px solid $bg-c-success;
+      background-color: #122143;
+      transition-duration: 0.5s;
+    }
+    @include respond-to(xl) {
+      @include flex-row();
+      padding: 14px 0;
+      img {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.header-left {
+  @include flex-row(space-between);
+  max-width: 100px;
+  width: 100%;
+  margin-left: 3%;
+  .menu-control {
+    @include flex-row(space-between);
+    max-width: 37px;
+    width: 100%;
+    cursor: pointer;
+    :last-child {
+      display: none;
+    }
+  }
+  .menu-search {
+    .menu-search-item {
+      display: inline-block;
+      cursor: pointer;
+    }
+    .form-search {
+      display: none;
+    }
+  }
+  @include respond-to(xl) {
+    max-width: 80px;
+    .menu-control {
+      :last-child,
+      :first-child {
+        display: none !important;
+      }
+    }
+  }
+}
+
+.header-right {
+  @include flex-row(space-between);
+  max-width: 440px;
+  width: 100%;
+  margin-right: 3%;
+  .add-project {
+    max-width: 145px;
+    width: 100%;
+    .btn-small {
+      @include flex-row(space-between);
+      width: 100%;
+      background-color: $bg-c-success;
+      padding: 11px 15px;
+      border-radius: 24px;
+
+      color: $c-white;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.24px;
+    }
+  }
+  .menu-notification {
+    cursor: pointer;
+    position: relative;
+    .menu-notification-list {
+      display: none;
+    }
+  }
+  .menu-message {
+    cursor: pointer;
+    position: relative;
+    .menu-message-list {
+      display: none;
+    }
+  }
+  .user-profile {
+    max-width: 70px;
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+    .user-profile-item {
+      @include flex-row(space-between);
+      :first-child {
+        max-width: 45px;
+      }
+    }
+    .user-profile-list {
+      display: none;
+    }
+  }
+  @include respond-to(xl) {
+    max-width: 340px;
+  }
+  @include respond-to(sm) {
+    max-width: 180px;
+    .add-project {
+      display: none;
+    }
+  }
+  @media screen and (orientation: landscape) and (max-width: 823px) {
+    .user-profile-item img:first-of-type {
+      height: 30px;
+    }
+    .add-project .btn-small {
+      padding: 5px 10px;
+      font-size: 1.4rem;
+    }
+    .user-profile {
+      max-width: 50px;
+    }
+    .add-project {
+      max-width: 125px;
+    }
+  }
+}
+
+// CLASS JAVASCRIPT
+.menuBlockActive {
+  width: 60px;
+  padding: 0;
+
+  .menu-logo {
+    .menu-title {
+      display: none;
+    }
+    .menu-logo-img {
+      max-width: 45px;
+    }
+  }
+
+  .menu-main {
+    a {
+      @include flex-column();
+      padding: 14px 0;
+      span {
+        font-size: 1rem;
+      }
+      img {
+        padding: 0;
+      }
+    }
+  }
+
+  @include respond-to(xl) {
+    display: block !important;
+  }
+}
+
+.userWindowActive {
+  width: 100%;
+}
+
+.menuControlActive {
+  :last-child {
+    display: block !important;
+  }
+  :first-child {
+    display: none;
+  }
+}
+
+.currentLink {
+  border-left: 10px solid $bg-c-success;
+  background-color: #122143;
+  transition-duration: 0.5s;
+}
+
+// CLASS JAVASCRIPT - header left
+.headerLeftActive {
+  max-width: 315px;
+  .menu-search {
+    @include flex-row();
+  }
+
+  @include respond-to(xl) {
+    max-width: 295px;
+  }
+  @include respond-to(md) {
+    max-width: 210px;
+  }
+  @include respond-to(xs) {
+    max-width: 170px;
+  }
+}
+
+.formSearchActive {
+  display: inline-block !important;
+  margin-left: 10px;
+  border: none;
+  outline: none;
+  font-style: italic;
+  font-size: 1.8rem;
+  border-bottom: 2px solid black;
+
+  @include respond-to(md) {
+    max-width: 120px;
+  }
+  @include respond-to(xs) {
+    max-width: 80px;
+  }
+}
+
+// CLASS JAVASCRIPT - header right(MESSAGE)
+
+.activeWindow .menu-message-list {
+  display: block !important;
+  background-color: $bg-c-white;
+  position: absolute;
+  right: 0px;
+  top: 51px;
+  min-width: 350px;
+  z-index: 2;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  @include respond-to(sm) {
+    right: -151px;
+  }
+  li {
+    @include flex-row();
+    padding: 10px 0;
+    &:nth-child(2n + 1) {
+      font-weight: bold;
+      font-size: 1.6rem;
+      color: $c-black;
+      span {
+        margin: 0 10px;
+      }
+    }
+    .message-notification {
+      li {
+        @include flex-row(space-between);
+        padding: 15px 10px;
+        font-weight: 400 !important;
+        color: $c-black;
+        &:hover {
+          background-color: #8492af1f;
+        }
+        :last-child {
+          font-size: 1.4rem;
+          p {
+            padding-top: 10px;
+          }
+          :first-child {
+            @include flex-row(space-between);
+            span {
+              margin: 0;
+              &:first-of-type {
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+      img {
+        border-radius: 50px;
+        height: 53px;
+        margin-right: 15px;
+      }
+    }
+  }
+}
+
+// CLASS JAVASCRIPT - header right(NOTIFICATION)
+
+.activeWindow .menu-notification-list {
+  display: block !important;
+  background-color: $bg-c-white;
+  position: absolute;
+  right: 0px;
+  top: 53px;
+  min-width: 350px;
+  z-index: 2;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  @include respond-to(sm) {
+    right: -100px;
+  }
+  li {
+    @include flex-row();
+    padding: 10px 0;
+    &:nth-child(2n + 1) {
+      font-weight: bold;
+      font-size: 1.6rem;
+      color: $c-black;
+      span {
+        margin: 0 10px;
+      }
+    }
+    .notification-item {
+      width: 100%;
+      li {
+        @include flex-row(flex-start);
+        padding: 15px 10px;
+        font-weight: 400 !important;
+        color: $c-black;
+        &:hover {
+          background-color: #8492af1f;
+        }
+        :last-child {
+          font-size: 1.4rem;
+          @include flex-column(space-around, flex-start);
+          height: 53px;
+          span {
+            margin: 0;
+            &:first-of-type {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+      img {
+        border-radius: 50px;
+        height: 53px;
+        margin-right: 15px;
+      }
+    }
+  }
+}
+
+// CLASS JAVASCRIPT - header right(USER PROFILE)
+
+.activeWindow .user-profile-list {
+  display: block !important;
+  background-color: $bg-c-white;
+  position: absolute;
+  right: 0px;
+  top: 60px;
+  min-width: 250px;
+  z-index: 2;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  @include respond-to(sm) {
+    right: -3px;
+  }
+  li {
+    @include flex-row();
+    padding: 10px 0;
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: $c-black;
+    &:last-of-type {
+      border-top: 1px solid #d9d9d9;
+    }
+    &:hover {
+      background-color: #8492af1f;
+    }
+    span {
+      margin: 0 10px;
+    }
+  }
+}
+
+.logout-icon {
+  position: relative;
+  right: 15px;
+  top: -3px;
+  &:after,
+  &:before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 5px;
+    background-color: $bg-c-black;
+  }
+  &:after {
+    transform: rotate(45deg);
+  }
+  &:before {
+    transform: rotate(-45deg);
+  }
+}
