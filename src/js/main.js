@@ -1,4 +1,4 @@
-(() => {
+document.addEventListener('DOMContentLoaded', () => {
   // SLIDING MENU
   const menuControl = document.querySelector('.menu-control');
   const menuBlock = document.querySelector('.menu-block');
@@ -63,8 +63,9 @@
   }
 
   closeWhenClickOutside('.header-right-menu');
-})();
+});
 
+// (() => { код })();
 
 // const menuList = document.querySelectorAll('.menu');
 
@@ -94,4 +95,3 @@
 // }
 
 // closeWhenClickOutside('.menu');
-

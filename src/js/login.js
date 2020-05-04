@@ -1,4 +1,4 @@
-(() => {
+document.addEventListener('DOMContentLoaded', () => {
   const register = document.querySelector('.register_btn');
   const login = document.querySelector('.login_btn');
   const loginMainFrst = document.querySelectorAll('.login_main');
@@ -18,7 +18,7 @@
     welcome[1].style.paddingBottom = '4%';
     document.querySelector('.input_login_click').style.marginBottom = '4.5%';
     document.querySelector('.reg_btn').style.marginTop = '5.4%';
-  }
+  };
 
   login.onclick = () => {
     if (window.matchMedia('(max-width: 768px)').matches) {
@@ -27,5 +27,5 @@
     }
     loginMainFrst[0].style.display = flex;
     loginMainFrst[1].style.display = none;
-  }
-})();
+  };
+});
