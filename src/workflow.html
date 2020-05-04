@@ -101,6 +101,7 @@
     </div>
   </article>
   <script>
+    //создание эл. в  колонки!
     (() => {
       let toDo = [{ name: 'New website for JCD.PL', status: '5 days left', watch: 'gray' }, { name: 'Free PSD Template vol.3', status: '5 days left', watch: 'gray' }, { name: 'New logo for Google', status: '5 days left', watch: 'gray' }, { name: 'New website for Windu.org', status: '5 days left', watch: 'gray' }, { name: 'Free PSD Template vol.2', status: '5 days left', watch: 'gray' }, { name: 'Iconset Vol.3', status: '5 days left', watch: 'gray' }];
       let inProgres = [{ name: 'New logo for Apple', status: '1 days left', watch: 'gray' }, { name: 'Daily Ul Kit', status: '5 days left', watch: 'gray' }, { name: 'Business Cards', status: '5 days left', watch: 'red' }];
@@ -113,7 +114,7 @@
         let mainblock = document.createElement('div');
         let elemImg = document.createElement('img');
         let rincle = document.createElement('div');
-        let letter = document.createElement('div'); 
+        let letter = document.createElement('div');
         let onlyText = document.createElement('div');
         let nameText = document.createElement('div');
         let completed = document.createElement('div');
@@ -142,6 +143,54 @@
           imgInComp.src = 'static/img/icons/watch_red.png';
           completed.style.color = '#f83c7b';
         }
+        ///////////////////////////////////////////////////////////////////////////////////
+        //всплывающее окно и его функция 
+
+        elemImg.onclick = () => {
+          let parentOutWindon = document.createElement('div');
+          let outWindon = document.createElement('div');
+          let outToDo = document.createElement('div');
+          let outInProgress = document.createElement('div');
+          let outComplete = document.createElement('div');
+
+          outWindon.setAttribute('class', 'outWindon');
+          outToDo.innerText = "Delete";
+          outInProgress.innerText = "InProgress";
+          outComplete.innerText = "Complete";
+
+          outToDo.setAttribute('class', 'outToDo');
+          outInProgress.setAttribute('class', 'outInProgress');
+          outComplete.setAttribute('class', 'outComplete');
+
+          elem.append(parentOutWindon);
+          parentOutWindon.append(outWindon);
+          outWindon.append(outToDo);
+          outWindon.append(outInProgress);
+          outWindon.append(outComplete);
+
+          parentOutWindon.classList.toggle("someTemp"); //эл всплывающего окна
+
+          outToDo.onclick = () => {
+            block.remove();
+          }
+          outInProgress.onclick = () => { //эл всплывающего окна
+            imgInComp.src = 'static/img/icons/watch_red.png';
+            completed.style.color = '#f83c7b';
+            parentOutWindon.remove(); //удаление блока 
+          }
+          outComplete.onclick = () => { //эл всплывающего окна
+            imgInComp = document.createElement('img');
+
+            imgInComp.src = 'static/img/icons/watch_green.png';
+            completed.style.color = '#00bf1b';
+            completed.innerText = 'Completed!';
+            completed.append(imgInComp);
+
+            parentOutWindon.remove(); //удаление блока 
+          }
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////
 
         bigBlock.append(block);
         block.append(elem);
@@ -155,7 +204,7 @@
         completed.append(imgInComp);
       }
 
-      for (let i = 0; i < toDo.length; i++) {
+      for (let i = 0; i < toDo.length; i++) { //цыкл для создания эл в 1 колонку
         let name = '.list1';
         let inputName = toDo[i].name;
         let inputStatus = toDo[i].status;
@@ -163,7 +212,7 @@
         letFor(name, inputName, inputStatus, watch);
       }
 
-      for (let i = 0; i < inProgres.length; i++) {
+      for (let i = 0; i < inProgres.length; i++) { //цыкл для создания эл в 2 колонку
         let name = '.list2';
         let inputName = inProgres[i].name;
         let inputStatus = inProgres[i].status;
@@ -171,7 +220,7 @@
         letFor(name, inputName, inputStatus, watch);
       }
 
-      for (let i = 0; i < complete.length; i++) {
+      for (let i = 0; i < complete.length; i++) { //цыкл для создания эл в 3 колонку
         let name = '.list3';
         let inputName = complete[i].name;
         let inputStatus = complete[i].status;

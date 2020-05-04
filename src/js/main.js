@@ -9,7 +9,6 @@
     userWindow.classList.toggle('userWindowActive');
   };
 
-
   const loc = window.location.href;
   const curUrl = `/${loc.split('/').pop()}`;
   const menuItem = document.querySelectorAll('.menu-main>li>a');

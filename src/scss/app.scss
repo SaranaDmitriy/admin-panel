@@ -79,14 +79,35 @@
   }
 }
 
+.someTemp {
+  display: flex; // класс для всплывающего окна
+  position: absolute;
+  right: 45px;
+  top: 0;
+}
+
 .elem {
   display: flex;
+  position: relative;
   padding: 15px;
   background-color: $bg-c-white;
   margin: 10px 0;
   @include flex-row(space-between);
   & > img {
     margin-left: 5px;
+  }
+  .outWindon {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border-radius: 15px;
+    background-color: darkgray;
+    div {
+      cursor: pointer;
+      &:hover {
+        color: rgba(0, 0, 0, 0.3);
+      }
+    }
   }
   .mainblock {
     display: flex;
