@@ -1,14 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // START MENU
   // SLIDING MENU
   const menuControl = document.querySelector('.menu-control');
   const menuBlock = document.querySelector('.menu-block');
   const userWindow = document.querySelector('.user-window');
 
-  menuControl.onclick = () => {
-    menuControl.classList.toggle('menuControlActive');
-    menuBlock.classList.toggle('menuBlockActive');
-    userWindow.classList.toggle('userWindowActive');
-  };
+  if (menuControl) {
+    menuControl.onclick = () => {
+      menuControl.classList.toggle('menuControlActive');
+      menuBlock.classList.toggle('menuBlockActive');
+      userWindow.classList.toggle('userWindowActive');
+    };
+  }
 
   // HIGHLIGHTING THE MENU
   const loc = window.location.href;
@@ -28,23 +31,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const magnifier = document.querySelector('.menu-search-item');
   const formSearch = document.querySelector('.form-search');
 
-  magnifier.onclick = () => {
-    magnifier.classList.toggle('magnifierActive');
-    headerLeft.classList.toggle('headerLeftActive');
-    formSearch.classList.toggle('formSearchActive');
-  };
+  if (magnifier) {
+    magnifier.onclick = () => {
+      magnifier.classList.toggle('magnifierActive');
+      headerLeft.classList.toggle('headerLeftActive');
+      formSearch.classList.toggle('formSearchActive');
+    };
+  }
+
+  // LOGOUT
+  const accountLogout = document.querySelector('.logout');
+  if (accountLogout) {
+    accountLogout.onclick = () => {
+      window.location.href = '/';
+    };
+  }
 
   // CLOSE MENU WHEN CLICK OUTSIDE
-  function closeWhenClickOutside(selector) {
+  window.closeWhenClickOutside = (selector) => {
     const menuList = document.querySelectorAll(selector);
 
-    for (let i = 0; i < menuList.length; i++) {
-      menuList[i].querySelector('img.btnMenu').addEventListener('click', () => {
-        menuList[i].classList.toggle('activeWindow');
+    for (let i = 0; i < menuList.length; i += 1) {
+      menuList[i].querySelector('.btnDropdownMenu').addEventListener('click', () => {
+        menuList[i].classList.toggle('active');
 
         menuList.forEach((el) => {
           if (el !== menuList[i]) {
-            el.classList.remove('activeWindow');
+            el.classList.remove('active');
           }
         });
       });
@@ -52,46 +65,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('click', (e) => {
       const link = e.target.closest(selector);
-      const openMenus = document.querySelectorAll(`${selector}.activeWindow`);
+      const openMenus = document.querySelectorAll(`${selector}.active`);
 
       if (link === null && openMenus) {
         openMenus.forEach((el) => {
-          el.classList.remove('activeWindow');
+          el.classList.remove('active');
         });
       }
     });
-  }
-
-  closeWhenClickOutside('.header-right-menu');
+  };
+  window.closeWhenClickOutside('.header-right-menu');
+  // END MENU
 });
-
-// (() => { код })();
-
-// const menuList = document.querySelectorAll('.menu');
-
-// for (let i = 0; i < menuList.length; i++) {
-//   menuList[i].querySelector('img.btnMenu').addEventListener('click', () => {
-//     menuList[i].classList.toggle('activeWindow');
-
-//     menuList.forEach((el) => {
-//       if (el !== menuList[i]) {
-//         el.classList.remove('activeWindow');
-//       }
-//     });
-//   });
-// }
-
-// function closeWhenClickOutside(selector) {
-//   document.addEventListener('click', (e) => {
-//     const link = e.target.closest(selector);
-//     const openMenus = document.querySelectorAll(`${selector}.activeWindow`);
-
-//     if (link === null && openMenus) {
-//       openMenus.forEach((el) => {
-//         el.classList.remove('activeWindow');
-//       });
-//     }
-//   });
-// }
-
-// closeWhenClickOutside('.menu');

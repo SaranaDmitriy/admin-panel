@@ -358,7 +358,7 @@
 
 // CLASS JAVASCRIPT - header right(MESSAGE)
 
-.activeWindow .menu-message-list {
+.active .menu-message-list {
   display: block !important;
   background-color: $bg-c-white;
   position: absolute;
@@ -418,7 +418,7 @@
 
 // CLASS JAVASCRIPT - header right(NOTIFICATION)
 
-.activeWindow .menu-notification-list {
+.active .menu-notification-list {
   display: block !important;
   background-color: $bg-c-white;
   position: absolute;
@@ -475,7 +475,7 @@
 
 // CLASS JAVASCRIPT - header right(USER PROFILE)
 
-.activeWindow .user-profile-list {
+.active .user-profile-list {
   display: block !important;
   background-color: $bg-c-white;
   position: absolute;

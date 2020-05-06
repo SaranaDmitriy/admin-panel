@@ -65,7 +65,12 @@
             <img src="static/img/icons/menu.png" alt="menu">
             <img src="static/img/icons/right_arrow_blue.png" alt="arrow_blue">
           </div>
-          <div><img src="static/img/icons/search.png" alt="search"></div>
+          <div class="menu-search">
+            <div class="menu-search-item">
+              <img src="static/img/icons/search.png" alt="search">
+            </div>
+            <input class="form-search" type="text" placeholder="Search...">
+          </div>
         </div>
         <div class="header-right">
           <div class="add-project">
@@ -74,22 +79,117 @@
               <span>Add project</span>
             </a>
           </div>
-          <div><img src="static/img/icons/message.png" alt="message"></div>
-          <div><img src="static/img/icons/notification.png" alt="message"></div>
-          <div class="user-profile">
-            <a class="user-profile-item" href="">
+          <div class="header-right-menu menu-message">
+            <img class="btnDropdownMenu" src="static/img/icons/message.png" alt="message">
+            <ul class="menu-message-list">
+              <li>
+                <img src="static/img/icons/message.png" alt="message">
+                <span>Message</span>
+              </li>
+              <li>
+                <ul class="message-notification">
+                  <li>
+                    <img src="static/img/icons/John Doe.jpg" alt="John">
+                    <div>
+                      <div>
+                        <span>John Doe</span>
+                        <span>5 mins ago</span>
+                      </div>
+                      <p>Want to create your own customized data generator for your app...</p>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="static/img/icons/Moe Doe.jpg" alt="Moe">
+                    <div>
+                      <div>
+                        <span>Moe Doe</span>
+                        <span>10 mins ago</span>
+                      </div>
+                      <p>Want to create your own customized data generator for your app...</p>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="static/img/icons/Lee Doe.jpg" alt="Lee">
+                    <div>
+                      <div>
+                        <span>Lee Doe</span>
+                        <span>20 mins ago</span>
+                      </div>
+                      <p>Want to create your own customized data generator for your app...</p>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <span>View All Email</span>
+                <img src="static/img/icons/right_arrow.png" alt="arrow">
+              </li>
+            </ul>
+          </div>
+          <div class="header-right-menu menu-notification">
+            <img class="btnDropdownMenu" src="static/img/icons/notification.png" alt="notification">
+            <ul class="menu-notification-list">
+              <li>
+                <img src="static/img/icons/notification.png" alt="message">
+                <span>Notification</span>
+              </li>
+              <li>
+                <ul class="notification-item">
+                  <li>
+                    <img src="static/img/icons/John Doe.jpg" alt="John">
+                    <div>
+                      <span>John Doe liked your post</span>
+                      <span>5 mins ago</span>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="static/img/icons/Moe Doe.jpg" alt="Moe">
+                    <div>
+                      <span>Moe Doe liked your cover image</span>
+                      <span>10 mins ago</span>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="static/img/icons/Lee Doe.jpg" alt="Lee">
+                    <div>
+                      <span>Lee Doe commented on your video</span>
+                      <span>20 mins ago</span>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <span>View All Notification</span>
+                <img src="static/img/icons/right_arrow.png" alt="arrow">
+              </li>
+            </ul>
+          </div>
+          <div class="header-right-menu user-profile">
+            <div class="user-profile-item btnDropdownMenu">
               <img src="static/img/icons/photo.png" alt="photo">
               <img src="static/img/icons/down_arrow.png" alt="down_arrow">
-            </a>
+            </div>
+            <ul class="user-profile-list">
+              <li>
+                <img src="static/img/icons/notification.png" alt="message">
+                <span>Notification</span>
+              </li>
+              <li>
+                <img src="static/img/icons/message.png" alt="message">
+                <span>Message</span>
+              </li>
+              <li class="logout">
+                <span class="logout-icon"></span>
+                <span>Logout</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
 
-      <div class="user-window-info home-main row-11">
+      <div class="user-window-info workflow-main row-11">
         <!-- Временное -->
-        <div class="p-relative">
-          <p class="absolute-center">Page in development</p>
-        </div>
+
         <!-- Временное -->
       </div>
     </div>
